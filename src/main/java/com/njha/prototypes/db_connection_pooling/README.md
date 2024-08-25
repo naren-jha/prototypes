@@ -1,6 +1,6 @@
 # Database connection pooling prototype
 
-This prototypes exemplifies how db connection pooling improves system performance and avoids database connection overload issue.
+This prototype exemplifies how db connection pooling improves system performance and avoids database connection overload issue.
 
 Example 1 - with no db pooling.
 Example 2 - with custom db pooling.
