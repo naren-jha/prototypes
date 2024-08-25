@@ -29,7 +29,7 @@ public class NoPoolingService {
             connection = DriverManager.getConnection(url, user, password); // creates a new connection with the db each time
             preparedStatement = connection.prepareStatement("SELECT pg_sleep(?)");
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
-            preparedStatement.execute();
+            preparedStatement.execute(); // query execution
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
