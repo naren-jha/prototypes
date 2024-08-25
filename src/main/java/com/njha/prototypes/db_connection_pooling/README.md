@@ -16,7 +16,7 @@ Example 2 - with custom db pooling.
 - For each db call , it simply gets a connection object from the head of the blocking queue
 - Executes the query using that connection object, and then puts the connection object back into the blocking queue
 - This way we avoid the "3 way handshake to establish the connection" and the "2 way tear down", which improves application performance.
-- By using blocking queue for connection pool implementation and having a predefined fixed size of the pool, it makes sure that the application will never initiate more than 'x' number of connections with the database (where 'x' is an application config), thereby avoiding database connection overload issues.
+- By using blocking queue for connection pool implementation and having a predefined fixed size of the pool, it makes sure that the application will never initiate more than 'x' number of connections with the database at any point in time (where 'x' is an application config), thereby avoiding database connection overload issues.
 
 Below is the error you get when using example 1 (With no db pooling)
 
