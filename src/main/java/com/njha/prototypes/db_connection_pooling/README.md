@@ -23,7 +23,7 @@ Example 2 - with a custom connection pooling.
 ## Observations: 
 - I'm running a 10ms sleep query in each thread.
 - Without connection pooling(ex-1) DB overload occurs when I fire about 35000 threads concurrently.
-Below is the error you get when using no connection pooling
+Below is the error you get at 35K concurrent requests when using no connection pooling
 
 ### MySQL Connection overload error -
 
