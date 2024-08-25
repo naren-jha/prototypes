@@ -61,7 +61,7 @@ public class ConnectionPoolPrototype {
 
     @PostConstruct
     public void test() {
-        //benchmarkNonPool();
+        benchmarkNonPool();
         benchmarkPool();
     }
 

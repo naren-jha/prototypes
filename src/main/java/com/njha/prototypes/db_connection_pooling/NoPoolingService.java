@@ -29,7 +29,7 @@ public class NoPoolingService {
             // don't use dataSource.getConnection(); because that will get connection from Hikari pool
             connection = DriverManager.getConnection(url, user, password); // creates a new connection with the db each time
 
-            preparedStatement = connection.prepareStatement("SELECT SLEEP(?)");
+            preparedStatement = connection.prepareStatement("SELECT SLEEP(?)"); // pg_sleep - for PostgreSQL, SLEEP - for MySQL
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
             preparedStatement.execute(); // query execution
         } catch (SQLException e) {
