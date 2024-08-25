@@ -21,7 +21,8 @@ Example 2 - with a custom connection pooling.
 
 
 ## Observations: 
-- Without connection pooling (example 1) DB overload occurs when I fire 50000 threads simultaneously.
+- I'm running a 10ms sleep query in each thread.
+- Without connection pooling(ex-1) DB overload occurs when I fire about 35000 threads concurrently.
 Below is the error you get when using no connection pooling
 
 ### MySQL Connection overload error -
@@ -31,8 +32,9 @@ Below is the error you get when using no connection pooling
 ### PostgreSQL Connection overload error -
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/749b5493-81f6-4ff7-972d-9eea6087061d">
 
-- For 10000 (or lesser) number of threads, ex-2 (with connection pooling) outperforms ex-1 (without connection pooling) when using MySQL
-- However, no performance improvement is seen when using PostgreSQL [infact ex2 slightly outperformed ex-1 in some cases], probably because of Postgre's internal optimizations. For the same size of threads, with and without the pooling seems to have mostly similar performance in case of PostgreSQL.
-- Both databases however fails at a certain threshold (50K simultaneous connection requests)
+- For 30000 (or lesser) number of threads, ex-2 (with connection pooling) outperforms ex-1 (without connection pooling) when using MySQL
+- However, no performance improvement is seen when using PostgreSQL [infact ex2 slightly outperformed ex-1 in some cases], probably because of Postgre's internal optimizations. For the same size of threads, with and without the pooling seems to have nearly similar performance using PostgreSQL.
+- Both databases however fails at a certain threshold (35K simultaneous connection requests)
+- Above observations occur on my local machine when I'm running a 10ms sleep query in each thread. The sleep query is used to simulate a typical query execution time. The results might vary based on the query execution time.
 
 
