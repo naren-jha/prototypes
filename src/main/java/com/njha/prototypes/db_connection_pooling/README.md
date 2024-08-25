@@ -21,10 +21,11 @@ Example 2 - with a custom connection pooling.
 
 Below is the error you get when using example 1 (With no connection pooling)
 
-MySQL Connection overload 
+### MySQL Connection overload error -
+
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/eabd49f6-08cd-4ba9-9b98-bf1e4c934792">
 
-PostgreSQL Connection overload
+### PostgreSQL Connection overload error -
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/749b5493-81f6-4ff7-972d-9eea6087061d">
 
 Further observations: 
