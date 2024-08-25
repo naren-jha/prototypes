@@ -18,7 +18,7 @@ public class ConnectionPoolPrototype {
     private ExecutorService executorService;
 
     @Autowired
-    private DataSource dataSource;
+    private ExecutorService executorService2;
 
     @Autowired
     private NoPoolingService noPoolingService;
@@ -29,7 +29,7 @@ public class ConnectionPoolPrototype {
     public void benchmarkNonPool() {
         Instant start = Instant.now();
 
-        for (int i = 0; i < 10; i++) { // fails at 100000
+        for (int i = 0; i < 1000; i++) { // fails at 50000
             executorService.submit(() -> noPoolingService.executeSleepQuery());
         }
 
@@ -46,12 +46,12 @@ public class ConnectionPoolPrototype {
     public void benchmarkPool() {
         Instant start = Instant.now();
 
-        for (int i = 0; i < 100000; i++) {
-            executorService.submit(() -> poolingService.executeSleepQuery());
+        for (int i = 0; i < 1000; i++) {
+            executorService2.submit(() -> poolingService.executeSleepQuery());
         }
 
-        executorService.shutdown(); // don't accept anymore tasks in the pool
-        while (!executorService.isTerminated()) {
+        executorService2.shutdown(); // don't accept anymore tasks in the pool
+        while (!executorService2.isTerminated()) {
             // Wait for all tasks to finish
         }
 

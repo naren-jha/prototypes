@@ -12,9 +12,9 @@ import java.sql.SQLException;
 @Service
 public class NoPoolingService {
 
-    private String url = "jdbc:postgresql://localhost:5432/test";
-    private String user = "narendrajha";
-    private String password = "narendrajha";
+    private String url = "jdbc:mysql://localhost:3306/test";
+    private String user = "root";
+    private String password = "root1234";
 
     public void executeSleepQuery() {
         // creates a new connection with the db each time this method is called
@@ -29,7 +29,7 @@ public class NoPoolingService {
             // don't use dataSource.getConnection(); because that will get connection from Hikari pool
             connection = DriverManager.getConnection(url, user, password); // creates a new connection with the db each time
 
-            preparedStatement = connection.prepareStatement("SELECT pg_sleep(?)");
+            preparedStatement = connection.prepareStatement("SELECT SLEEP(?)");
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
             preparedStatement.execute(); // query execution
         } catch (SQLException e) {

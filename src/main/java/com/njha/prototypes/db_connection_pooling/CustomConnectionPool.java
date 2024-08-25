@@ -17,9 +17,9 @@ public class CustomConnectionPool {
 
     private BlockingQueue<Connection> connectionPool;
 
-    private String url = "jdbc:postgresql://localhost:5432/test";
-    private String user = "narendrajha";
-    private String password = "narendrajha";
+    private String url = "jdbc:mysql://localhost:3306/test";
+    private String user = "root";
+    private String password = "root1234";
 
     @PostConstruct
     public void initializeConnectionPool() throws SQLException {

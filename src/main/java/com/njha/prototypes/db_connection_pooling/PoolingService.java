@@ -18,7 +18,7 @@ public class PoolingService {
         PreparedStatement preparedStatement = null;
         try {
             connection = customConnectionPool.get(); // get a connection obj from the custom pool
-            preparedStatement = connection.prepareStatement("SELECT pg_sleep(?)");
+            preparedStatement = connection.prepareStatement("SELECT SLEEP(?)");
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
             preparedStatement.execute();
         } catch (SQLException | InterruptedException e) {

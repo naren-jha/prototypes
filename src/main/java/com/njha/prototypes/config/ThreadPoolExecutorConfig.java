@@ -27,4 +27,11 @@ public class ThreadPoolExecutorConfig {
                 TimeUnit.SECONDS, new LinkedBlockingDeque<>());
         return executorService;
     }
+
+    @Bean("executorService2")
+    public ExecutorService getExecutorService2(){
+        ExecutorService executorService = new ThreadPoolExecutor(poolSize, maximumPoolSize, keepAliveTimeSec,
+                TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+        return executorService;
+    }
 }
