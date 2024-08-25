@@ -28,6 +28,7 @@ Below is the error you get when using example 1 (With no connection pooling)
 ### PostgreSQL Connection overload error -
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/749b5493-81f6-4ff7-972d-9eea6087061d">
 
+
 Further observations: 
 - Performance improvement is not seen in PostgreSQL, probably because of Postgre's internal optimizations. For the same size of threads, with and without the pool seems to have similar performance.
 - Postgre has more user friendly error messages :)
