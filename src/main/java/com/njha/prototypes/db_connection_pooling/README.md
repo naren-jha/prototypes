@@ -21,7 +21,7 @@ Example 2 - with a custom connection pooling.
 
 
 ## Observations: 
-- Without connection pooling (example 1) the db overload occurs when I fire 50000 threads simultaneously
+- Without connection pooling (example 1) DB overload occurs when I fire 50000 threads simultaneously.
 Below is the error you get when using no connection pooling
 
 ### MySQL Connection overload error -
