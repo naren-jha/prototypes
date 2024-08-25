@@ -20,7 +20,7 @@ Example 2 - with a custom connection pooling.
 - By using blocking queue for connection pool implementation and having a predefined fixed size of the pool, it makes sure that the application will never initiate more than 'x' number of connections with the database at any point in time (where 'x' is an application config), thereby avoiding database connection overload issues.
 
 
-## observations: 
+## Observations: 
 - Without connection pooling (example 1) the db overload occurs when I fire 50000 threads simultaneously
 Below is the error you get when using no connection pooling
 
