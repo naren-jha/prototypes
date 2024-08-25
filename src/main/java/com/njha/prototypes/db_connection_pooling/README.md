@@ -32,7 +32,7 @@ Below is the error you get when using no connection pooling
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/749b5493-81f6-4ff7-972d-9eea6087061d">
 
 - For 10000 (or lesser) number of threads, ex-2 (with connection pooling) outperforms ex-1 (without connection pooling) when using MySQL
-- However, no performance improvement is seen when using PostgreSQL [infact ex2 slightly outperformed ex-1 in some cases], probably because of Postgre's internal optimizations. For the same size of threads, with and without the pooling seems to have similar performance in case of PostgreSQL.
+- However, no performance improvement is seen when using PostgreSQL [infact ex2 slightly outperformed ex-1 in some cases], probably because of Postgre's internal optimizations. For the same size of threads, with and without the pooling seems to have mostly similar performance in case of PostgreSQL.
 - Both databases however fails at a certain threshold (50K simultaneous connection requests)
 
 
