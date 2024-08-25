@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ExecutorService;
@@ -29,7 +28,7 @@ public class ConnectionPoolPrototype {
     public void benchmarkNonPool() {
         Instant start = Instant.now();
 
-        for (int i = 0; i < 30000; i++) { // fails at 35000
+        for (int i = 0; i < 1000; i++) { // fails at 35000
             executorService.submit(() -> noPoolingService.executeSleepQuery());
         }
 
