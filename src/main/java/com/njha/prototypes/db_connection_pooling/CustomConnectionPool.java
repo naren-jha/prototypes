@@ -30,11 +30,11 @@ public class CustomConnectionPool {
         }
     }
 
-    public Connection getConnection() throws InterruptedException {
+    public Connection get() throws InterruptedException {
         return connectionPool.take();
     }
 
-    public void releaseConnection(Connection connection) {
+    public void add(Connection connection) {
         if (connection != null) {
             connectionPool.offer(connection);
         }

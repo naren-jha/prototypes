@@ -17,7 +17,7 @@ public class PoolingService {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
-            connection = connectionPool.getConnection();
+            connection = connectionPool.get(); // get a connection obj from the pool
             preparedStatement = connection.prepareStatement("SELECT pg_sleep(?)");
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
             preparedStatement.execute();
@@ -25,7 +25,7 @@ public class PoolingService {
             e.printStackTrace();
         } finally {
             closeResources(preparedStatement);
-            connectionPool.releaseConnection(connection);
+            connectionPool.add(connection); // add connection obj back to the pool
         }
     }
 
