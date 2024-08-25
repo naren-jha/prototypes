@@ -35,6 +35,6 @@ Below is the error you get at 35K concurrent requests when using no connection p
 - For 30000 (or lesser) number of threads, ex-2 (with connection pooling) outperforms ex-1 (without connection pooling) when using MySQL
 - However, no performance improvement is seen when using PostgreSQL [infact ex2 slightly outperformed ex-1 in some cases], probably because of Postgre's internal optimizations. For the same size of threads, with and without the pooling seems to have nearly similar performance using PostgreSQL.
 - Both databases however fails at a certain threshold (35K concurrent requests)
-- Above observations occur on my local machine when I'm running a 10ms sleep query in each thread. The sleep query is used to simulate a typical query execution time. The results might vary based on the query execution time and database server configuration and application server configurations.
+- Above observations occur on my local machine when I'm running a 10ms sleep query in each thread. The sleep query is used to simulate a typical query execution time. The results might vary based on the query execution time, database server configurations and application server configurations.
 
 
