@@ -1,4 +1,4 @@
 # prototypes
 
-## Prototypes solutions of various concepts
+## Prototype solutions of various concepts
 
