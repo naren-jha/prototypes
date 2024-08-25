@@ -29,7 +29,7 @@ public class ConnectionPoolPrototype {
     public void benchmarkNonPool() {
         Instant start = Instant.now();
 
-        for (int i = 0; i < 1000; i++) { // fails at 50000
+        for (int i = 0; i < 30000; i++) { // fails at 35000
             executorService.submit(() -> noPoolingService.executeSleepQuery());
         }
 
@@ -62,7 +62,7 @@ public class ConnectionPoolPrototype {
     @PostConstruct
     public void test() {
         benchmarkNonPool();
-        benchmarkPool();
+        //benchmarkPool();
     }
 
 }
