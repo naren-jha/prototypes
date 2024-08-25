@@ -16,7 +16,7 @@ Example 2 - with a custom connection pooling.
 - Implements a custom connection pool class instead of using Spring Hikari pool connection
 - For each db call , it simply gets a connection object from the head of the blocking queue
 - Executes the query using that connection object, and then puts the connection object back into the blocking queue
-- This way we avoid the "3 way handshake to establish the connection" and the "2 way tear down", which improves application performance.
+- This way we avoid the "3 way handshake to establish the connection" and the "2 way tear down" on each query execution, which improves application performance.
 - By using blocking queue for connection pool implementation and having a predefined fixed size of the pool, it makes sure that the application will never initiate more than 'x' number of connections with the database at any point in time (where 'x' is an application config), thereby avoiding database connection overload issues.
 
 
