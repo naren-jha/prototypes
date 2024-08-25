@@ -30,7 +30,7 @@ Below is the error you get when using example 1 (With no connection pooling)
 
 
 Further observations: 
-- Performance improvement is not seen in PostgreSQL, probably because of Postgre's internal optimizations. For the same size of threads, with and without the pool seems to have similar performance.
+- Performance improvement is not seen in PostgreSQL, probably because of Postgre's internal optimizations. For the same size of threads, with and without the pool seems to have similar performance in case of PostgreSQL.
 - Postgre has more user friendly error messages :)
 
 
