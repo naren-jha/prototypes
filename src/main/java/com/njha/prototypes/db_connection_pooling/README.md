@@ -2,24 +2,24 @@
 
 This prototype exemplifies how db connection pooling improves system performance and avoids database connection overload issue.
 
-Example 1 - with no db connection pooling.
+Example 1 - with no connection pooling.
 
-Example 2 - with a custom db connection pooling.
+Example 2 - with a custom connection pooling.
 
-### With no db connection pooling:
+### With no connection pooling:
 - For each db call, the application establises a new db connection, which invloves -
   - A 3 way handshake to establish the connection
   - A 2 way request-response - query execution (the actual work)
   - And finally a 2 way tear down
 
-### With a custom db connection pooling
+### With a custom connection pooling
 - Implements a custom connection pool class instead of using Spring Hikari pool connection
 - For each db call , it simply gets a connection object from the head of the blocking queue
 - Executes the query using that connection object, and then puts the connection object back into the blocking queue
 - This way we avoid the "3 way handshake to establish the connection" and the "2 way tear down", which improves application performance.
 - By using blocking queue for connection pool implementation and having a predefined fixed size of the pool, it makes sure that the application will never initiate more than 'x' number of connections with the database at any point in time (where 'x' is an application config), thereby avoiding database connection overload issues.
 
-Below is the error you get when using example 1 (With no db connection pooling)
+Below is the error you get when using example 1 (With no connection pooling)
 
 MySQL Connection overload 
 <img width="1752" alt="image" src="https://github.com/user-attachments/assets/eabd49f6-08cd-4ba9-9b98-bf1e4c934792">
