@@ -11,13 +11,13 @@ import java.sql.SQLException;
 public class PoolingService {
 
     @Autowired
-    private CustomConnectionPool connectionPool;
+    private CustomConnectionPool customConnectionPool;
 
     public void executeSleepQuery() {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
-            connection = connectionPool.get(); // get a connection obj from the pool
+            connection = customConnectionPool.get(); // get a connection obj from the custom pool
             preparedStatement = connection.prepareStatement("SELECT pg_sleep(?)");
             preparedStatement.setDouble(1, 0.01); // sleep 10ms
             preparedStatement.execute();
@@ -25,7 +25,7 @@ public class PoolingService {
             e.printStackTrace();
         } finally {
             closeResources(preparedStatement);
-            connectionPool.add(connection); // add connection obj back to the pool
+            customConnectionPool.add(connection); // add connection obj back to the pool
         }
     }
 
