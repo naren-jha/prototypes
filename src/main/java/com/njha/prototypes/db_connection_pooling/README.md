@@ -7,9 +7,9 @@ Example 2 - with custom db pooling.
 
 ### With no db pooling:
 - For each db call, we create a new connection, which invloves
-- A 3 way handshake to establish the connection
-- A 2 way request-response - query execution (the actual work)
-- And finally a 2 way tear down
+  - A 3 way handshake to establish the connection
+  - A 2 way request-response - query execution (the actual work)
+  - And finally a 2 way tear down
 
 ### With custom db pooling
 - Implements a custom connection pool class instead of using Spring Hikari pool connection
